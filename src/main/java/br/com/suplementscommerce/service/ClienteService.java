@@ -1,7 +1,7 @@
 package br.com.suplementscommerce.service;
 
 import br.com.suplementscommerce.repository.ClienteRepository;
-import br.com.suplementscommerce.service.form.ClienteForm;
+import br.com.suplementscommerce.repository.entities.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 public class ClienteService {
     @Autowired
     private ClienteRepository clienteRepository;
-    public ClienteForm create(ClienteForm clienteForm){
+    public Cliente create(Cliente clienteForm){
 
-        ClienteForm cliente = new ClienteForm();
+        Cliente cliente = new Cliente();
         cliente.setNome(clienteForm.getNome());
         cliente.setIdade(clienteForm.getIdade());
         cliente.setCpf(clienteForm.getCpf());
@@ -19,8 +19,6 @@ public class ClienteService {
         cliente.setEndereco(clienteForm.getEndereco());
 
         return clienteRepository.save(cliente);
-
-
     }
 
 }

@@ -1,12 +1,9 @@
 package br.com.suplementscommerce.controller;
 
 import br.com.suplementscommerce.service.ClienteService;
-import br.com.suplementscommerce.service.form.ClienteForm;
+import br.com.suplementscommerce.repository.entities.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/cliente")
@@ -14,9 +11,15 @@ public class ClienteController {
     @Autowired
     private ClienteService clienteService;
 
-    @PostMapping
-    public ClienteForm create(@RequestBody ClienteForm clienteForm){
+    @PostMapping("/cadastro")
+    public Cliente create(Cliente clienteForm){
         return clienteService.create(clienteForm);
     }
 
+
+
 }
+
+/* estudar MVC & Rest & Data
+mapear tabela no java
+        relacionamento*/
