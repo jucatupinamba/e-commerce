@@ -3,6 +3,7 @@ package br.com.suplementscommerce.service;
 import br.com.suplementscommerce.repository.ClienteRepository;
 import br.com.suplementscommerce.repository.entities.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,4 +22,14 @@ public class ClienteService {
         return clienteRepository.save(cliente);
     }
 
+    public Cliente findById(Long id){
+        return clienteRepository.findById(id);}
+
+    public ResponseEntity<Cliente> salvar(Cliente existente) {
+        return clienteRepository.save(existente);
+    }
+
+    public void delete(Cliente cliente) {
+        clienteRepository.delete(cliente);
+    }
 }
