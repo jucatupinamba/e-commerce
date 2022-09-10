@@ -6,9 +6,9 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/cliente")
@@ -16,19 +16,20 @@ public class ClienteController {
     @Autowired
     private ClienteService clienteService;
 
-    @PostMapping("/cadastro")
-    public Cliente create(Cliente clienteForm){
-        return clienteService.create(clienteForm);
+    @PostMapping
+    public ResponseEntity<Cliente> criar(@RequestBody Cliente cliente){
+        clienteService.create(cliente);
+        return ResponseEntity.ok(cliente);
     }
 
-    @GetMapping(path = "/{id}")
-    public ResponseEntity<Cliente> findById(@PathVariable Long id){
-        Cliente cliente = clienteService.findById(id);
+    @GetMapping(path = "/buscarNome")
+    public ResponseEntity<List<Cliente>> buscarNome(@RequestParam("nome") String nome){
+        List<Cliente> cliente = clienteService.buscarNome(nome.trim().toUpperCase());
         if(cliente == null){
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(cliente);}
-    @PutMapping("/{id}")  //transferir a lógica para service
+    @PutMapping("/{id}")
     public ResponseEntity<Cliente> atualizar(@PathVariable Long id, @Valid @RequestBody Cliente cliente){
         Cliente existente = clienteService.findById(id);
 
@@ -37,7 +38,7 @@ public class ClienteController {
         }
         BeanUtils.copyProperties(cliente, existente, "id");
 
-        return clienteService.salvar(existente);
+        return ResponseEntity.ok(clienteService.salvar(existente));
 
     }
     @DeleteMapping("/{id}")

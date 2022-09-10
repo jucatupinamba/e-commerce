@@ -8,19 +8,24 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "tb_produtos")
+@Table(name = "produtos")
 public class Produto {
     @Id
     @Column(name = "id", nullable = false)
     private Long id;
+    @NotBlank
     private String nome;
+    @NotBlank
     private String descricao;
     //private BufferedImage imagem;
+    @NotNull
     private Double preco;
 
 
