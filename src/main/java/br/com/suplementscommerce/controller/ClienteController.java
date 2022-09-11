@@ -22,13 +22,12 @@ public class ClienteController {
         return ResponseEntity.ok(cliente);
     }
 
-    @GetMapping(path = "/buscarNome")
-    public ResponseEntity<List<Cliente>> buscarNome(@RequestParam("nome") String nome){
-        List<Cliente> cliente = clienteService.buscarNome(nome.trim().toUpperCase());
-        if(cliente == null){
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(cliente);}
+    @GetMapping("/todos")
+    public ResponseEntity<Cliente> buscarTodos(@RequestBody Cliente cliente){
+        clienteService.findAll(cliente);
+        return ResponseEntity.ok(cliente);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<Cliente> atualizar(@PathVariable Long id, @Valid @RequestBody Cliente cliente){
         Cliente existente = clienteService.findById(id);
@@ -51,6 +50,14 @@ public class ClienteController {
 
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping(path = "/buscarNome")
+    public ResponseEntity<List<Cliente>> buscarNome(@RequestParam("nome") String nome){
+        List<Cliente> cliente = clienteService.buscarNome(nome.trim().toUpperCase());
+        if(cliente == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(cliente);}
 
 }
 
