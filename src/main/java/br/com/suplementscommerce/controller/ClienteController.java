@@ -15,17 +15,21 @@ import java.util.List;
 public class ClienteController {
     @Autowired
     private ClienteService clienteService;
+    @GetMapping
+    public String acessarPrincipal(){
+        return "/resources/templates";
+    }
 
     @PostMapping
-    public ResponseEntity<Cliente> criar(@RequestBody Cliente cliente){
-        clienteService.create(cliente);
-        return ResponseEntity.ok(cliente);
+    public ResponseEntity<Cliente> criar(@Valid @RequestBody Cliente cliente){
+        Cliente criarCliente = clienteService.create(cliente);
+        return ResponseEntity.ok(criarCliente);
     }
 
     @GetMapping("/todos")
-    public ResponseEntity<Cliente> buscarTodos(@RequestBody Cliente cliente){
-        clienteService.findAll(cliente);
-        return ResponseEntity.ok(cliente);
+    public ResponseEntity<List<Cliente>> buscarTodos(@Valid @RequestBody Cliente cliente){
+        List<Cliente> todosOsClientes = clienteService.findAll(cliente);
+        return ResponseEntity.ok(todosOsClientes);
     }
 
     @PutMapping("/{id}")

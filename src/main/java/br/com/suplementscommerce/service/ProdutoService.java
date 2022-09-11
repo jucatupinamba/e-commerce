@@ -5,12 +5,14 @@ import br.com.suplementscommerce.repository.entities.Produto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProdutoService {
     @Autowired
     private ProdutoRepository produtoRepository;
 
-    public Produto create(Produto produtoForm){
+    public Produto salvar(Produto produtoForm){
         Produto produto = new Produto();
 
         produto.setNome(produtoForm.getNome());
@@ -19,4 +21,13 @@ public class ProdutoService {
 
         return produtoRepository.save(produto);
     }
+
+    public List<Produto> buscarTodos(Produto produto) {
+        List<Produto> todosProdutos = produtoRepository.findAll();
+        return todosProdutos;
+    }
+/*
+    public void apagar(Produto produto) {
+        return produtoRepository.delete(produto);
+    }*/
 }
