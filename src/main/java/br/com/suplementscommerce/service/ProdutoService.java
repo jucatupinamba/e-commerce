@@ -26,8 +26,9 @@ public class ProdutoService {
         List<Produto> todosProdutos = produtoRepository.findAll();
         return todosProdutos;
     }
-/*
-    public void apagar(Produto produto) {
-        return produtoRepository.delete(produto);
-    }*/
+
+    public Produto apagar(Produto produto) {
+        produtoRepository.delete(produto);
+        return produto;
+    }
 }

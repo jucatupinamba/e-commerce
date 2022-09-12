@@ -37,13 +37,13 @@ public class ProdutoController {
         return ResponseEntity.ok(atualizarProduto);
     }
 
-    /*@DeleteMapping
+    @DeleteMapping
     public ResponseEntity<Produto> removerProduto(Produto produto){
         Produto removerProduto = produtoService.apagar(produto);
         if(removerProduto == null){
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(produto);
-    }*/
+    }
 
 }
