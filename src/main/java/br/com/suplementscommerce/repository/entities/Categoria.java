@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Data
 @AllArgsConstructor
@@ -16,6 +17,7 @@ import javax.persistence.Table;
 public class Categoria {
     @Id
     private Long id;
+    @NotBlank
     private String nomeCategoria;
 }
 
