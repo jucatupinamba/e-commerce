@@ -21,10 +21,10 @@ public class ClienteController {
     @Autowired
     private ClienteRepository clienteRepository;    //Apenas para teste da View com bd
 
+
     @GetMapping("/cadastro")
     public ModelAndView cadastrar(){
         ModelAndView mv = new ModelAndView("cadastro");
-        mv.addObject("cadastro",clienteRepository.findAll());
         return mv;
     }
 
