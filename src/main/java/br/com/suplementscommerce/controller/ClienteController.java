@@ -1,12 +1,15 @@
 package br.com.suplementscommerce.controller;
 
+import br.com.suplementscommerce.repository.ClienteRepository;
 import br.com.suplementscommerce.service.ClienteService;
 import br.com.suplementscommerce.repository.entities.Cliente;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -15,9 +18,22 @@ import java.util.List;
 public class ClienteController {
     @Autowired
     private ClienteService clienteService;
-    @GetMapping
-    public String acessarPrincipal(){
-        return "/resources/templates";
+    @Autowired
+    private ClienteRepository clienteRepository;    //Apenas para teste da View com bd
+
+
+    @GetMapping("/cadastro")
+    public ModelAndView cadastrar(){
+        ModelAndView mv = new ModelAndView("cadastro");
+        return mv;
+    }
+
+    @GetMapping(value = "/clientes")
+    public ModelAndView clientes(){
+        ModelAndView andView = new ModelAndView("/clientes");
+        Iterable<Cliente> clientesIt = clienteRepository.findAll();
+        andView.addObject("clientes", clientesIt);
+        return andView;
     }
 
     @PostMapping
@@ -67,12 +83,7 @@ public class ClienteController {
 }
 
 
-   /* @PostMapping
-    public ModelAndView cadastrar(){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("cadastro.html");
-        return mv;
-    }*/
+
 
 
 /* estudar MVC & Rest & Data
