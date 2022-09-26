@@ -22,9 +22,9 @@ public class ClienteController {
     private ClienteRepository clienteRepository;    //Apenas para teste da View com bd
 
 
-    @GetMapping("/cadastro")
-    public ModelAndView cadastrar(){
-        ModelAndView mv = new ModelAndView("cadastro");
+    @GetMapping("/index")
+    public ModelAndView index(){
+        ModelAndView mv = new ModelAndView("index");
         return mv;
     }
 
