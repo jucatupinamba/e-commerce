@@ -4,12 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -23,10 +21,16 @@ public class Produto {
     @NotBlank
     private String nome;
     @NotBlank
-    private String descricao;
-    //private BufferedImage imagem;
+    @OneToMany
+    private List<UploadImagens> nomeImagem;
     @NotNull
     private Double preco;
+    @NotBlank
+    @OneToOne
+    private Categoria categoria;
+    @NotBlank
+    @OneToOne
+    private SubCategoria subcategoria;
 
 
 }
