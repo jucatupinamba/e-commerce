@@ -18,6 +18,7 @@ public class ProdutoService {
         produto.setNome(produtoForm.getNome());
         produto.setNomeImagem(produtoForm.getNomeImagem());
         produto.setPreco(produtoForm.getPreco());
+        produto.setQuantidade(produtoForm.getQuantidade());
 
         return produtoRepository.save(produto);
     }
