@@ -24,15 +24,16 @@ public class Produto {
     @OneToMany
     private List<UploadImagens> nomeImagem;
     @NotNull
-    private Integer quantidade;                         //variável para teste carrinho
-    @NotNull
     private Double preco;
+    @NotNull
+    private Integer quantidade;
     @NotBlank
     @OneToOne
     private Categoria categoria;
     @NotBlank
     @OneToOne
     private SubCategoria subcategoria;
+
 
 
 }

@@ -18,9 +18,6 @@ import java.util.List;
 public class ClienteController {
     @Autowired
     private ClienteService clienteService;
-    @Autowired
-    private ClienteRepository clienteRepository;    //Apenas para teste da View com bd
-
 
     @GetMapping("/index")
     public ModelAndView index(){
@@ -29,9 +26,9 @@ public class ClienteController {
     }
 
     @GetMapping(value = "/clientes")
-    public ModelAndView clientes(){
+    public ModelAndView clientes(@Valid @RequestBody Cliente cliente){
         ModelAndView andView = new ModelAndView("/clientes");
-        Iterable<Cliente> clientesIt = clienteRepository.findAll();
+        Iterable<Cliente> clientesIt = clienteService.findAll(cliente);
         andView.addObject("clientes", clientesIt);
         return andView;
     }

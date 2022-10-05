@@ -15,19 +15,7 @@ public class Carrinho {
 
     @Autowired
     private Cliente cliente;
-    private List<Produto> listaProduto;                      //necessário autowired?
-
-    public Double subtotal(Produto produto, Integer quantidade){
-        Double subTotalProduto = produto.getPreco() * quantidade;
-        return subTotalProduto;
-    }
-
-    public Double totalCarrinho(List<Produto> produtoList){
-        Double totalGasto = 0.0d;
-        for(int i=0; i< produtoList.size(); i++){
-            totalGasto = subtotal(produtoList.get(i), produtoList.get(i).getQuantidade());
-        }
-        return totalGasto;
-    }
+    private Produto produto;
+    private Integer quantidade;
 
 }

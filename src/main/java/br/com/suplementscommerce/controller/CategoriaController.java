@@ -19,6 +19,18 @@ public class CategoriaController {
         List<Categoria> todasAsCategorias = categoriaService.findAll(categoria);
         return ResponseEntity.ok(todasAsCategorias);
     }
+    @GetMapping
+    public ResponseEntity<Categoria> buscarId(@PathVariable Long id, @Valid @RequestBody Categoria categoria){
+        Categoria existente = categoriaService.findById(id);
+
+        if(existente == null){
+            return ResponseEntity.notFound().build();
+        }
+        BeanUtils.copyProperties(categoria, existente, "id");
+
+        return ResponseEntity.ok(categoriaService.salvar(existente));
+    }
+
 
     @PostMapping
     public ResponseEntity<Categoria> criar(@RequestBody String categoria){
