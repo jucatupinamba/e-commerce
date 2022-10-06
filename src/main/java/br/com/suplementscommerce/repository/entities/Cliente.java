@@ -1,5 +1,6 @@
 package br.com.suplementscommerce.repository.entities;
 
+import br.com.suplementscommerce.model.Carrinho;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,4 +28,6 @@ public class Cliente {
     private String cpf;
     @NotBlank
     private String endereco;
+    @OneToOne
+    private Carrinho carrinho;
 }

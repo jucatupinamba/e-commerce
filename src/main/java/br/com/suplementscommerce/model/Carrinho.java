@@ -7,14 +7,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.persistence.*;
 import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 public class Carrinho {
-
-    @Autowired
-    private Cliente cliente;
+    @Id
+    Long id;
+    @OneToMany
+    @JoinColumn(name = "produto")
     private Produto produto;
     private Integer quantidade;
 

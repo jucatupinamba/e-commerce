@@ -16,9 +16,6 @@ import java.io.IOException;
 @RestController
 public class UploadImagensController {
 
-    @Autowired
-    private UploadImagensService uploadImagensService;
-
     @PostMapping
     public ResponseEntity<?> fileUpload(@RequestParam("file") MultipartFile file){
         String fileName = file.getOriginalFilename();
