@@ -29,9 +29,6 @@ public class Produto {
     private Integer quantidade;
     @NotBlank
     @OneToOne
-    private Categoria categoria;
-    @NotBlank
-    @OneToOne
     private SubCategoria subcategoria;
 
 

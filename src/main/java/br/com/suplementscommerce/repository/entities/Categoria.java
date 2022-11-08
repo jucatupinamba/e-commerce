@@ -18,7 +18,11 @@ public class Categoria {
     @NotBlank
     private String nomeCategoria;
     @NotBlank
+<<<<<<< Updated upstream
     @OneToOne
+=======
+    @ManyToOne
+>>>>>>> Stashed changes
     private SubCategoria subCategoria;
 }
 

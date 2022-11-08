@@ -18,6 +18,8 @@ import java.util.List;
 public class ClienteController {
     @Autowired
     private ClienteService clienteService;
+    @Autowired
+    private Cliente cliente;
 
     @GetMapping("/index")
     public ModelAndView index(){

@@ -16,6 +16,12 @@ import java.io.IOException;
 @RestController
 public class UploadImagensController {
 
+<<<<<<< Updated upstream
+=======
+    //@Autowired
+    private UploadImagensService uploadImagensService;
+
+>>>>>>> Stashed changes
     @PostMapping
     public ResponseEntity<?> fileUpload(@RequestParam("file") MultipartFile file){
         String fileName = file.getOriginalFilename();
