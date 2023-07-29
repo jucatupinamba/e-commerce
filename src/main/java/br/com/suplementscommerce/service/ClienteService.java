@@ -40,8 +40,7 @@ public class ClienteService {
         return clienteRepository.buscarNome(nome);
     }
 
-    public List<Cliente> findAll(Cliente cliente) {
-       List<Cliente> todosOsClientes = clienteRepository.findAll();
-        return todosOsClientes;
+    public List<Cliente> findAll() {
+       return clienteRepository.findAll();
     }
 }

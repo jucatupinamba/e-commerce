@@ -18,23 +18,6 @@ import java.util.List;
 public class ClienteController {
     @Autowired
     private ClienteService clienteService;
-    @Autowired
-    private ClienteRepository clienteRepository;    //Apenas para teste da View com bd
-
-
-    @GetMapping("/index")
-    public ModelAndView index(){
-        ModelAndView mv = new ModelAndView("index");
-        return mv;
-    }
-
-    @GetMapping
-    public ModelAndView clientes(){
-        ModelAndView andView = new ModelAndView("/clientes");
-        Iterable<Cliente> clientesIt = clienteRepository.findAll();
-        andView.addObject("clientes", clientesIt);
-        return andView;
-    }
 
     @PostMapping
     public ResponseEntity<Cliente> criar(@Valid @RequestBody Cliente cliente){
@@ -42,10 +25,10 @@ public class ClienteController {
         return ResponseEntity.ok(criarCliente);
     }
 
-    @GetMapping("/todos")
-    public ResponseEntity<List<Cliente>> buscarTodos(@Valid @RequestBody Cliente cliente){
-        List<Cliente> todosOsClientes = clienteService.findAll(cliente);
-        return ResponseEntity.ok(todosOsClientes);
+    @GetMapping
+    public ResponseEntity<List<Cliente>> buscarTodos(){
+        List<Cliente> todosOsClientes = clienteService.findAll();
+        return ResponseEntity.ok().body(todosOsClientes);
     }
 
     @PutMapping("/{id}")
