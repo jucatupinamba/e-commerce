@@ -24,7 +24,8 @@ public class Produto {
     private String nome;
     @NotBlank
     private String descricao;
-    //private BufferedImage imagem;
+    @NotBlank
+    private String urlImage;
     @NotNull
     private Double preco;
 
