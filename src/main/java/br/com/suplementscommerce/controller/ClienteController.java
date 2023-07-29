@@ -21,7 +21,6 @@ public class ClienteController {
     @Autowired
     private ClienteService clienteService;
 
-
     @PostMapping
     public ResponseEntity<Cliente> insert(@RequestBody Cliente obj){
         obj = clienteService.salvar(obj);
@@ -29,10 +28,10 @@ public class ClienteController {
         return ResponseEntity.created(uri).body(obj);
     }
 
-    @GetMapping("/todos")
-    public ResponseEntity<List<Cliente>> buscarTodos(@Valid @RequestBody Cliente cliente){
-        List<Cliente> todosOsClientes = clienteService.findAll(cliente);
-        return ResponseEntity.ok(todosOsClientes);
+    @GetMapping
+    public ResponseEntity<List<Cliente>> buscarTodos(){
+        List<Cliente> todosOsClientes = clienteService.findAll();
+        return ResponseEntity.ok().body(todosOsClientes);
     }
 
     @PutMapping("/{id}")
