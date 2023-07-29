@@ -14,7 +14,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/cliente")
+@RequestMapping("/clientes")
 public class ClienteController {
     @Autowired
     private ClienteService clienteService;
@@ -28,7 +28,7 @@ public class ClienteController {
         return mv;
     }
 
-    @GetMapping(value = "/clientes")
+    @GetMapping
     public ModelAndView clientes(){
         ModelAndView andView = new ModelAndView("/clientes");
         Iterable<Cliente> clientesIt = clienteRepository.findAll();

@@ -3,21 +3,23 @@ package br.com.suplementscommerce.controller;
 import br.com.suplementscommerce.repository.entities.Categoria;
 import br.com.suplementscommerce.service.CategoriaService;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-
+@RestController
+@RequestMapping("/categorias")
 public class CategoriaController {
-
+    @Autowired
     private CategoriaService categoriaService;
 
 
-    @GetMapping("/todos")
-    public ResponseEntity<List<Categoria>> buscarTodos(@Valid @RequestBody Categoria categoria){
-        List<Categoria> todasAsCategorias = categoriaService.findAll(categoria);
-        return ResponseEntity.ok(todasAsCategorias);
+    @GetMapping
+    public ResponseEntity<List<Categoria>> buscarTodos(){
+        List<Categoria> todasAsCategorias = categoriaService.findAll();
+        return ResponseEntity.ok().body(todasAsCategorias);
     }
 
     @PostMapping

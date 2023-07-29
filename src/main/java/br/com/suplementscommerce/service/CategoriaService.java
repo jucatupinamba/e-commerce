@@ -2,13 +2,15 @@ package br.com.suplementscommerce.service;
 
 import br.com.suplementscommerce.repository.CategoriaRepository;
 import br.com.suplementscommerce.repository.entities.Categoria;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class CategoriaService {
-
+    @Autowired
     private CategoriaRepository categoriaRepository;
 
     public Categoria create(String nomeCategoria){
@@ -29,8 +31,8 @@ public class CategoriaService {
         categoriaRepository.delete(cliente);
     }
 
-    public List<Categoria> findAll(Categoria categoria) {
-        List<Categoria> todosAsCategorias = categoriaRepository.findAll();
-        return todosAsCategorias;
+    public List<Categoria> findAll() {
+        return categoriaRepository.findAll();
+
     }
 }
