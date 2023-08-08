@@ -13,10 +13,8 @@ public class CategoriaService {
     @Autowired
     private CategoriaRepository categoriaRepository;
 
-    public Categoria create(String nomeCategoria){
-        Categoria categoriaTemp = new Categoria();
-        categoriaTemp.setNomeCategoria(nomeCategoria);
-        return categoriaRepository.save(categoriaTemp);
+    public Categoria create(Categoria nomeCategoria){
+        return categoriaRepository.save(nomeCategoria);
     }
 
     public Categoria findById(Long id){
