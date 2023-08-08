@@ -57,13 +57,13 @@ public class ClienteController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping(path = "/buscarNome")
-    public ResponseEntity<List<Cliente>> buscarNome(@RequestParam("nome") String nome){
-        List<Cliente> cliente = clienteService.buscarNome(nome.trim().toUpperCase());
-        if(cliente == null){
+    @GetMapping("/{id}")
+    public ResponseEntity<Cliente> buscarNome(@PathVariable Long id){
+        Cliente obj = clienteService.findById(id);
+        if(obj == null){
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(cliente);}
+        return ResponseEntity.ok(obj);}
 
 
 }
