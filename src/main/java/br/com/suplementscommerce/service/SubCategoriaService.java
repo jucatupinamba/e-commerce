@@ -2,18 +2,18 @@ package br.com.suplementscommerce.service;
 
 import br.com.suplementscommerce.repository.SubCategoriaRepository;
 import br.com.suplementscommerce.repository.entities.SubCategoria;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class SubCategoriaService {
-
+    @Autowired
     private SubCategoriaRepository subCategoriaRepository;
 
-    public SubCategoria create(String nomeSubCategoria){
-        SubCategoria subCategoriaTemp = new SubCategoria();
-        subCategoriaTemp.setNomeSubCategoria(nomeSubCategoria);
-        return subCategoriaRepository.save(subCategoriaTemp);
+    public SubCategoria create(SubCategoria obj){
+        return subCategoriaRepository.save(obj);
     }
 
     public SubCategoria findById(Long id){

@@ -63,7 +63,8 @@ public class ClienteController {
         if(obj == null){
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(obj);}
+        return ResponseEntity.ok(obj);
+    }
 
 
 }
