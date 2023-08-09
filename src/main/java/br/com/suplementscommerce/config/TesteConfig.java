@@ -1,5 +1,6 @@
 package br.com.suplementscommerce.config;
 
+import br.com.suplementscommerce.model.Carrinho;
 import br.com.suplementscommerce.repository.CategoriaRepository;
 import br.com.suplementscommerce.repository.ClienteRepository;
 import br.com.suplementscommerce.repository.ProdutoRepository;
@@ -49,5 +50,14 @@ public class TesteConfig implements CommandLineRunner {
         Cliente clit4 = new Cliente(null, "Novaes Moreira", "71", "moreiran@emailteste.com.br", "120.543.098-23", "Rua Ernesto Que Vaga, 29");
 
         clienteRepository.saveAll(Arrays.asList(clit1, clit2, clit3, clit4));
+
+        Produto prod1 = new Produto(null, "Camiseta de Basquete", "Camisa do Chicago Bulls", "www.chicago.com.br", 106.00);
+        Produto prod2 = new Produto(null, "Blusa de Futebol", "Blusão da Gaviões", "www.corinthians.com.br", 300.00);
+        Produto prod3 = new Produto(null, "Automoramas Corrida", "Jogo de corrida de Fórmula para xbox", "www.corrida.com.br", 250.00);
+        Produto prod4 = new Produto(null, "King of Fighters 96", "Jogo de luta de arcade", "www.kingsof.com.br", 96.50);
+        Produto prod5 = new Produto(null, "Óculos Crew", "Oculoes de sol de madeira", "www.osculo.com.br", 125.80);
+        Produto prod6 = new Produto(null, "Estética automotiva",  "Evento de limpeza do carro",  "www.carrolimpo.com.br", 129.30);
+
+        produtoRepository.saveAll(Arrays.asList(prod1, prod2, prod3, prod4, prod5, prod6));
     }
 }
