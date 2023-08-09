@@ -36,10 +36,6 @@ public class ClienteService {
         clienteRepository.delete(cliente);
     }
 
-    public List<Cliente> buscarNome(String nome) {
-        return clienteRepository.buscarNome(nome);
-    }
-
     public List<Cliente> findAll() {
        return clienteRepository.findAll();
     }

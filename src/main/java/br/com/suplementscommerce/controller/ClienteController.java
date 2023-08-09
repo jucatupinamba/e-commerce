@@ -21,17 +21,26 @@ public class ClienteController {
     @Autowired
     private ClienteService clienteService;
 
-    @PostMapping
-    public ResponseEntity<Cliente> insert(@RequestBody Cliente obj){
-        obj = clienteService.salvar(obj);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
-        return ResponseEntity.created(uri).body(obj);
-    }
-
     @GetMapping
     public ResponseEntity<List<Cliente>> buscarTodos(){
         List<Cliente> todosOsClientes = clienteService.findAll();
         return ResponseEntity.ok().body(todosOsClientes);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Cliente> buscarNome(@PathVariable Long id){
+        Cliente obj = clienteService.findById(id);
+        if(obj == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(obj);
+    }
+
+    @PostMapping
+    public ResponseEntity<Cliente> insert(@RequestBody Cliente obj){
+        obj = clienteService.create(obj);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
+        return ResponseEntity.created(uri).body(obj);
     }
 
     @PutMapping("/{id}")
@@ -56,17 +65,6 @@ public class ClienteController {
 
         return ResponseEntity.noContent().build();
     }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Cliente> buscarNome(@PathVariable Long id){
-        Cliente obj = clienteService.findById(id);
-        if(obj == null){
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(obj);
-    }
-
-
 }
 
 
