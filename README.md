@@ -1,7 +1,7 @@
 
 <h1>Ecommerce Systems Go</h1>
 
-<p>Projeto próprio de E-commerce em desenvolvimento.</p>
+<p>Projeto próprio de E-commerce <strong>em desenvolvimento</strong>.</p>
 
 <p>Tecnologias a serem utilizadas:
     Backend: Java, Spring Boot, SpringData, Spring Rest / MVC, H2<br>
@@ -13,6 +13,8 @@
    * Area Cliente <br>
    * Carrinho <br>
    * Compra</p> 
-   <p>Clique no botão abaixo para acessar os endpoints do projetos configurados com Swagger Open API</p>
+   
+   <p>Botão abaixo com o link para acessar os endpoints, basta clonar e rodar o projeto em sua máquina.</p>
     
-    <a href="http://localhost:8080/swagger-ui/index.html#/"><button>Clique Aqui</button></a>
+    
+<a href='http://localhost:8080/swagger-ui/index.html#/'><button>Link para os Endpoints</button></a>
