@@ -13,5 +13,6 @@
    * Area Cliente <br>
    * Carrinho <br>
    * Compra</p> 
+   <p>Clique no botão abaixo para acessar os endpoints do projetos configurados com Swagger Open API</p>
     
-    
+    <a href="http://localhost:8080/swagger-ui/index.html#/"><button>Clique Aqui</button></a>
