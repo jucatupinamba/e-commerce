@@ -17,19 +17,32 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 @RestController
-@RequestMapping(value = "/teste-open-api", produces = {"application/json"})
-@Tag(name = "Ecommerce Juca")
+@RequestMapping(value = "/categorias", produces = {"application/json"})
+@Tag(name = "Categoria")
 public class CategoriaController {
     @Autowired
     private CategoriaService categoriaService;
 
-
+    @Operation(summary = "Busca todas as categorias", method = "GET")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Requisição realizada com sucesso"),
+            @ApiResponse(responseCode = "422", description = "Dados de requisição inválidos"),
+            @ApiResponse(responseCode = "400", description = "Parametros inválidos"),
+            @ApiResponse(responseCode = "500", description = "Erro ao realizar a requisição o arquivo"),
+    })
     @GetMapping
     public ResponseEntity<List<Categoria>> buscarTodos(){
         List<Categoria> todasAsCategorias = categoriaService.findAll();
         return ResponseEntity.ok().body(todasAsCategorias);
     }
 
+    @Operation(summary = "Busca o nome da categoria pelo ID", method = "GET")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Nome encontrado com sucesso"),
+            @ApiResponse(responseCode = "422", description = "Dados de requisição inválidos"),
+            @ApiResponse(responseCode = "400", description = "Parametros inválidos"),
+            @ApiResponse(responseCode = "500", description = "Erro ao buscar o arquivo"),
+    })
     @GetMapping(value = "/{id}")
     public ResponseEntity<Categoria> findById(@PathVariable Long id) {
         Categoria obj = categoriaService.findById(id);
@@ -50,7 +63,13 @@ public class CategoriaController {
         return ResponseEntity.created(uri).body(obj);
     }
 
-
+    @Operation(summary = "Atualiza o nome da categoria", method = "PUT")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Nome atualizado com sucesso"),
+            @ApiResponse(responseCode = "422", description = "Dados de requisição inválidos"),
+            @ApiResponse(responseCode = "400", description = "Parametros inválidos"),
+            @ApiResponse(responseCode = "500", description = "Erro ao atualizar o arquivo"),
+    })
     @PutMapping("/{id}")
     public ResponseEntity<Categoria> atualizar(@PathVariable Long id, @Valid @RequestBody Categoria categoria){
         Categoria existente = categoriaService.findById(id);
@@ -63,6 +82,13 @@ public class CategoriaController {
         return ResponseEntity.ok(categoriaService.salvar(existente));
 
     }
+    @Operation(summary = "APAGA O ARQUIVO DA CATEGORIA", method = "DELETE")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Nome deletado com sucesso"),
+            @ApiResponse(responseCode = "422", description = "Dados de requisição inválidos"),
+            @ApiResponse(responseCode = "400", description = "Parametros inválidos"),
+            @ApiResponse(responseCode = "500", description = "Erro ao deletar o arquivo"),
+    })
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> remover(@PathVariable Long id){
         Categoria categoria = categoriaService.findById(id);
