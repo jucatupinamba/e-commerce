@@ -19,7 +19,6 @@ import java.util.Arrays;
 @Configuration
 @Profile("test")
 public class TesteConfig implements CommandLineRunner {
-
     @Autowired
     private Categoria categoria;
     @Autowired
@@ -32,11 +31,11 @@ public class TesteConfig implements CommandLineRunner {
     private Produto produto;
     @Autowired
     private ProdutoRepository produtoRepository;
+    @Autowired
     private SubCategoria subCategoria;
 
     @Override
     public void run(String... args) throws Exception {
-
 
         Categoria cat1 = new Categoria(null, "Acessórios");
         Categoria cat2 = new Categoria(null, "Vestuário");

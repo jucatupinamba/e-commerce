@@ -7,7 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@OpenAPIDefinition(info = @Info(title = "Swagger OpenApi", version = "1", description = "API desenvolvida para testes do OpenApi"))
+@ComponentScan(basePackages = "br.com.suplementscommerce.config")
+@OpenAPIDefinition(info = @Info(title = "Ecommerce Juca", version = "1", description = "API desenvolvida para estudo"))
 public class EcommerceApplication {
 
 	public static void main(String[] args) {
