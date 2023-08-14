@@ -41,7 +41,7 @@ public class ClienteController {
 
     @Operation(summary = "Busca o nome do cliente pelo ID", method = "GET")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Nome encontrado com sucesso"),
+            @ApiResponse(responseCode = "200", description = "Requisição realizada com sucesso"),
             @ApiResponse(responseCode = "422", description = "Dados de requisição inválidos"),
             @ApiResponse(responseCode = "400", description = "Parametros inválidos"),
             @ApiResponse(responseCode = "500", description = "Erro ao buscar o arquivo"),
@@ -57,7 +57,7 @@ public class ClienteController {
 
     @Operation(summary = "Salva o cliente", method = "POST")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Cliente salvo com sucesso"),
+            @ApiResponse(responseCode = "200", description = "Requisição realizada com sucesso"),
             @ApiResponse(responseCode = "422", description = "Dados de requisição inválidos"),
             @ApiResponse(responseCode = "400", description = "Parametros inválidos"),
             @ApiResponse(responseCode = "500", description = "Erro ao salvar o arquivo"),
@@ -91,7 +91,7 @@ public class ClienteController {
 
     @Operation(summary = "Aapaga o cliente e todos os seus dados", method = "DELETE")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Cliente deletado com sucesso"),
+            @ApiResponse(responseCode = "200", description = "Requisição realizada com sucesso"),
             @ApiResponse(responseCode = "422", description = "Dados de requisição inválidos"),
             @ApiResponse(responseCode = "400", description = "Parametros inválidos"),
             @ApiResponse(responseCode = "500", description = "Erro ao deletar o arquivo"),

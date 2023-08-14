@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "br.com.suplementscommerce.config")
 @OpenAPIDefinition(info = @Info(title = "Ecommerce Juca", version = "1", description = "API desenvolvida para estudo"))
 public class EcommerceApplication {
 
