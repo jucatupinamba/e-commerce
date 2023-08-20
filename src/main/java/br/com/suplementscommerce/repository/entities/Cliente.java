@@ -8,6 +8,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 @Entity
@@ -87,5 +88,18 @@ public class Cliente {
 
     public void setEndereco(final String endereco) {
         this.endereco = endereco;
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) return true;
+        if (null == o || this.getClass() != o.getClass()) return false;
+        final Cliente cliente = (Cliente) o;
+        return Objects.equals(this.id, cliente.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.id);
     }
 }

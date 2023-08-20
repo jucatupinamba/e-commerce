@@ -55,4 +55,21 @@ public class ItemPedido {
     public void setPreco(final Double preco) {
         this.preco = preco;
     }
+
+    public Double getSubTotal(){
+        return preco * quantidade;
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) return true;
+        if (null == o || this.getClass() != o.getClass()) return false;
+        final ItemPedido that = (ItemPedido) o;
+        return Objects.equals(this.id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.id);
+    }
 }
