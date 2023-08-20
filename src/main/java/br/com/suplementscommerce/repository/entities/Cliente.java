@@ -27,7 +27,7 @@ public class Cliente {
     @NotBlank
     private String endereco;
     @JsonIgnore
-    @OneToMany(mappedBy = "cliente_id")
+    @OneToMany(mappedBy = "cliente")
     private List<Pedido> listaPedido = new ArrayList<>();
 
     public Cliente(final Long id, final String nome, final String idade, final String email, final String cpf, final String endereco) {
