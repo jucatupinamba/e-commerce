@@ -5,7 +5,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "subcategoria")
+@Table(name = "tb_subcategoria")
 public class SubCategoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

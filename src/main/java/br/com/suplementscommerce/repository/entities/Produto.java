@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 
 
 @Entity
-@Table(name = "produtos")
+@Table(name = "tb_produtos")
 public class Produto {
     @Id
     @Column(name = "id", nullable = false)

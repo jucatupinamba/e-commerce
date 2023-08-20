@@ -1,13 +1,17 @@
 package br.com.suplementscommerce.repository.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
-@Table(name = "clientes")
+@Table(name = "tb_clientes")
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +26,9 @@ public class Cliente {
     private String cpf;
     @NotBlank
     private String endereco;
+    @JsonIgnore
+    @OneToMany(mappedBy = "cliente_id")
+    private List<Pedido> listaPedido = new ArrayList<>();
 
     public Cliente(final Long id, final String nome, final String idade, final String email, final String cpf, final String endereco) {
         this.id = id;
