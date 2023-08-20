@@ -82,7 +82,7 @@ public class CategoriaController {
         return ResponseEntity.ok(categoriaService.salvar(existente));
 
     }
-    @Operation(summary = "APAGA O ARQUIVO DA CATEGORIA", method = "DELETE")
+    @Operation(summary = "Apaga o arquivo da categoria", method = "DELETE")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Nome deletado com sucesso"),
             @ApiResponse(responseCode = "422", description = "Dados de requisição inválidos"),
