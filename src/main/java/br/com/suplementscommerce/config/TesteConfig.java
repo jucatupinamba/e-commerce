@@ -1,6 +1,5 @@
 package br.com.suplementscommerce.config;
 
-import br.com.suplementscommerce.model.Carrinho;
 import br.com.suplementscommerce.repository.CategoriaRepository;
 import br.com.suplementscommerce.repository.ClienteRepository;
 import br.com.suplementscommerce.repository.ProdutoRepository;
@@ -20,19 +19,11 @@ import java.util.Arrays;
 @Profile("test")
 public class TesteConfig implements CommandLineRunner {
     @Autowired
-    private Categoria categoria;
-    @Autowired
     private CategoriaRepository categoriaRepository;
-    @Autowired
-    private Cliente cliente;
     @Autowired
     private ClienteRepository clienteRepository;
     @Autowired
-    private Produto produto;
-    @Autowired
     private ProdutoRepository produtoRepository;
-    @Autowired
-    private SubCategoria subCategoria;
 
     @Override
     public void run(String... args) throws Exception {
