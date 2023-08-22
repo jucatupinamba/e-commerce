@@ -49,9 +49,9 @@ public class PedidoController {
         return ResponseEntity.ok().body(obj);
     }
 
-    @Operation(summary = "Salva o Produto", method = "POST")
+    @Operation(summary = "Salva o Pedido", method = "POST")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Produto salvo com sucesso"),
+            @ApiResponse(responseCode = "200", description = "Pedido salvo com sucesso"),
             @ApiResponse(responseCode = "422", description = "Dados de requisição inválidos"),
             @ApiResponse(responseCode = "400", description = "Parametros inválidos"),
             @ApiResponse(responseCode = "500", description = "Erro ao salvar o arquivo"),
@@ -63,9 +63,9 @@ public class PedidoController {
         return ResponseEntity.created(uri).body(obj);
     }
 
-    @Operation(summary = "Atualiza o Produto", method = "PUT")
+    @Operation(summary = "Atualiza o Pedido", method = "PUT")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Produto atualizado com sucesso"),
+            @ApiResponse(responseCode = "200", description = "Pedido atualizado com sucesso"),
             @ApiResponse(responseCode = "422", description = "Dados de requisição inválidos"),
             @ApiResponse(responseCode = "400", description = "Parametros inválidos"),
             @ApiResponse(responseCode = "500", description = "Erro ao atualizar o arquivo"),

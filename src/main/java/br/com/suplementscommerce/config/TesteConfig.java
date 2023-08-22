@@ -60,5 +60,12 @@ public class TesteConfig implements CommandLineRunner {
         Produto prod6 = new Produto(null, "Estética automotiva",  "Evento de limpeza do carro",  "www.carrolimpo.com.br", 129.30);
 
         produtoRepository.saveAll(Arrays.asList(prod1, prod2, prod3, prod4, prod5, prod6));
+
+        prod1.getCategorias().add(cat1);
+        prod2.getCategorias().add(cat2);
+        prod3.getCategorias().add(cat3);
+        prod4.getCategorias().add(cat4);
+        prod5.getCategorias().add(cat3);
+        prod6.getCategorias().add(cat2);
     }
 }
