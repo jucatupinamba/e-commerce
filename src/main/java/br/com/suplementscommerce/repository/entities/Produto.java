@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 
 @Entity
@@ -24,6 +27,12 @@ public class Produto {
     private String urlImage;
     @NotNull
     private Double preco;
+
+    @ManyToMany
+    @JoinTable(name = "tb_produto_categoria",
+            joinColumns = @JoinColumn(name = "produto_id"),
+            inverseJoinColumns = @JoinColumn(name = "categoria_id"))
+    private Set<Categoria> categorias = new HashSet<>();
 
     public Produto(){}
 
@@ -73,5 +82,26 @@ public class Produto {
 
     public void setPreco(final Double preco) {
         this.preco = preco;
+    }
+
+    public Set<Categoria> getCategorias() {
+        return this.categorias;
+    }
+
+    public void setCategorias(final Set<Categoria> categorias) {
+        this.categorias = categorias;
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) return true;
+        if (null == o || this.getClass() != o.getClass()) return false;
+        final Produto produto = (Produto) o;
+        return Objects.equals(this.id, produto.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.id);
     }
 }

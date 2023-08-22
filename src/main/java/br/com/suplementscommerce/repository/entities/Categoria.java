@@ -1,7 +1,11 @@
 package br.com.suplementscommerce.repository.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -12,6 +16,10 @@ public class Categoria {
     private Long id;
     @NotBlank
     private String nomeCategoria;
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "categorias")
+    private Set<Produto> produto = new HashSet<>();
 
     public Categoria(final Long id, final String nomeCategoria) {
         this.id = id;

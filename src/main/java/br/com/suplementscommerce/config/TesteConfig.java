@@ -1,6 +1,5 @@
 package br.com.suplementscommerce.config;
 
-import br.com.suplementscommerce.model.Carrinho;
 import br.com.suplementscommerce.repository.CategoriaRepository;
 import br.com.suplementscommerce.repository.ClienteRepository;
 import br.com.suplementscommerce.repository.ProdutoRepository;
@@ -20,19 +19,11 @@ import java.util.Arrays;
 @Profile("test")
 public class TesteConfig implements CommandLineRunner {
     @Autowired
-    private Categoria categoria;
-    @Autowired
     private CategoriaRepository categoriaRepository;
-    @Autowired
-    private Cliente cliente;
     @Autowired
     private ClienteRepository clienteRepository;
     @Autowired
-    private Produto produto;
-    @Autowired
     private ProdutoRepository produtoRepository;
-    @Autowired
-    private SubCategoria subCategoria;
 
     @Override
     public void run(String... args) throws Exception {
@@ -60,5 +51,12 @@ public class TesteConfig implements CommandLineRunner {
         Produto prod6 = new Produto(null, "Estética automotiva",  "Evento de limpeza do carro",  "www.carrolimpo.com.br", 129.30);
 
         produtoRepository.saveAll(Arrays.asList(prod1, prod2, prod3, prod4, prod5, prod6));
+
+        prod1.getCategorias().add(cat1);
+        prod2.getCategorias().add(cat2);
+        prod3.getCategorias().add(cat3);
+        prod4.getCategorias().add(cat4);
+        prod5.getCategorias().add(cat3);
+        prod6.getCategorias().add(cat2);
     }
 }
