@@ -1,4 +1,4 @@
-
+<html>
 <h1>Ecommerce F Inter</h1>
 
 <a href="https://github.com/jucatupinamba/e-commerce/blob/master/Licença">
@@ -54,3 +54,5 @@ com a Open API Swagger configurada</p>
 <h2><strong>Autor</strong></h2>
 
 <a href="https://www.linkedin.com/in/juarez-martins-de-oliveira-junior/">Juarez Martins</a>
+
+</html>
