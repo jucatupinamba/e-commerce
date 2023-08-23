@@ -48,8 +48,8 @@ com a Open API Swagger configurada</p>
    
 <p>Endpoints disponíveis:</p>
 
-<img href="https://github.com/jucatupinamba/e-commerce/blob/master/Images/Captura%20de%20tela%20de%202023-08-23%2010-03-48.png">
-<img href="https://github.com/jucatupinamba/e-commerce/blob/master/Images/Captura%20de%20tela%20de%202023-08-23%2010-03-18.png">
+<img src="https://github.com/jucatupinamba/e-commerce/blob/master/Images/Captura%20de%20tela%20de%202023-08-23%2010-03-48.png">
+<img src="https://github.com/jucatupinamba/e-commerce/blob/master/Images/Captura%20de%20tela%20de%202023-08-23%2010-03-18.png">
 
 
 
