@@ -7,7 +7,7 @@
 
 <h2>Sobre o Projeto</h2>
 
-<p style= "text-align":"justify";>O Ecommerce F Inter foi idealizado por um Dev experiente que passou as orientações <br>
+<p style= "text-align : justify;">O Ecommerce F Inter foi idealizado por um Dev experiente que passou as orientações <br>
 necessárias para o início do desenvolvimento do Projeto, com estudo complementar e referências<br>
 o projeto está sendo produzido como uma aplicação FullStack mas também com os endpoints à mostra <br>
 com a Open API Swagger configurada</p>
