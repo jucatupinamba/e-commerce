@@ -48,8 +48,10 @@ com a Open API Swagger configurada</p>
    
 <p>Endpoints disponíveis:</p>
 
-<img href="https://drive.google.com/file/d/1-mp3UyXS4rfQlh5WkG4IVz7wWaWZLNsH/view?usp=sharing">
+<img href="https://docs.google.com/uc?id=12u-TwYDFxXAIxDq0iMIAs-oBedhxKDFt/view?usp=sharing">
 <img href="https://drive.google.com/file/d/12u-TwYDFxXAIxDq0iMIAs-oBedhxKDFt/view?usp=sharing">
+
+
 
 
 
