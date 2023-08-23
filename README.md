@@ -46,10 +46,12 @@ com a Open API Swagger configurada</p>
     <li>* Compra</li>
 </ul>  
    
-   <p>Botão abaixo com o link para acessar os endpoints, basta clonar e rodar o projeto em sua máquina.</p>
-    
-    
-<a href='http://localhost:8080/swagger-ui/index.html#/'><button>Link para os Endpoints</button></a>
+<p>Endpoints disponíveis:</p>
+
+<img href="https://drive.google.com/file/d/1-mp3UyXS4rfQlh5WkG4IVz7wWaWZLNsH/view?usp=sharing">
+<img href="https://drive.google.com/file/d/12u-TwYDFxXAIxDq0iMIAs-oBedhxKDFt/view?usp=sharing">
+
+
 
 <h2><strong>Autor</strong></h2>
 
